@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-datos=pd.read_csv('household_power_consumption6.txt', sep=',')
+datos=pd.read_csv('household_power_consumption.txt', sep=',')
 #print(datos)
 #print(datos.columns)
 columnas=['Global_active_power', 'Global_reactive_power',
@@ -44,3 +44,6 @@ for i in columnas:
 #     my_plot = datos[i].plot()
 #     plt.show() # no necesariamente en Jupyter Notebooks
 
+fig,(ax1,ax2)=plt.subplots(ncols=2,figsize=(6,5))
+ax1.set_title('Antes de normalizar')
+sns.kdeplot(datos['yes'],ax=ax1)
